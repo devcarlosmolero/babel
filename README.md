@@ -5,4 +5,4 @@
 <p align="center">
 </p>
 
-Babel is a simple yet powerful editor designed to help language learners create interactive exercises like multiple-choice and fill-in-the-blank quizzes.
+Babel is a simple editor designed to help language teachers create interactive exercises like multiple-choice and fill-in-the-blank quizzes.
