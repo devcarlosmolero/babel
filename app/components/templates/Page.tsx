@@ -1,12 +1,19 @@
-import React from 'react'
+import { ReactNode } from 'react'
+import Container from './Container'
+import PageInner from './PageInner'
 
-interface PageProps {
-    children: React.ReactNode
+export default function Page({
+    children,
+    className,
+}: {
+    children: ReactNode | ReactNode[]
     className?: string
+}) {
+    return (
+        <div>
+            <Container>
+                <PageInner className={className}>{children}</PageInner>
+            </Container>
+        </div>
+    )
 }
-
-const Page: React.FC<PageProps> = ({ children, className = '' }) => {
-    return <div className={className}>{children}</div>
-}
-
-export default Page

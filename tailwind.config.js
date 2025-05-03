@@ -9,11 +9,16 @@ module.exports = {
     prefix: '',
     theme: {
         fontFamily: {
-            primary: "PT Sans Narrow",
-            secondary: "PT Sans"
+            primary: "var(--babel-font-primary)",
+            secondary: "var(--babel-font-secondary)",
         },
         extend: {
-            colors: {}
+            colors: {
+                primary: 'hsl(var(--babel-color-primary))',
+                tertiary: 'hsl(var(--babel-color-tertiary))',
+                accent: 'hsl(var(--babel-color-accent))',
+                border: 'hsl(var(--babel-color-border))'
+            }
         },
     },
     plugins: [
