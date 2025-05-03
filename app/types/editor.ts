@@ -3,4 +3,8 @@ export interface IEditorBlockItem {
     content?: string
     answer?: string
     options?: string[]
+    spaces?: {
+        leading: boolean
+        trailing: boolean
+    }
 }

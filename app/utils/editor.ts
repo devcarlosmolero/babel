@@ -63,16 +63,24 @@ function getBlocks(editorRef: RefObject<HTMLTextAreaElement>) {
                 if (nextMatch === fillMatch) {
                     blocks.push({
                         type: 'FILL',
-                        answer: fillMatch[1],
+                        spaces: {
+                            leading: fillMatch[1] === ' ',
+                            trailing: fillMatch[3] === ' ',
+                        },
+                        answer: fillMatch[2],
                     })
                     currentIndex = fillMatch.index + fillMatch[0].length
                 } else {
                     if (choiceMatch && choiceMatch.length > 0) {
-                        const options = choiceMatch[1].split(',')
+                        const options = choiceMatch[2].split(',')
                         blocks.push({
                             type: 'CHOICE',
                             options,
-                            answer: options[0],
+                            spaces: {
+                                leading: choiceMatch[1] === ' ',
+                                trailing: choiceMatch[3] === ' ',
+                            },
+                            answer: options[1],
                         })
                         currentIndex = choiceMatch.index + choiceMatch[0].length
                     }

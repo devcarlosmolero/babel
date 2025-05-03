@@ -17,7 +17,8 @@ module.exports = {
                 primary: 'hsl(var(--babel-color-primary))',
                 tertiary: 'hsl(var(--babel-color-tertiary))',
                 accent: 'hsl(var(--babel-color-accent))',
-                border: 'hsl(var(--babel-color-border))'
+                border: 'hsl(var(--babel-color-border))',
+                success: 'hsl(var(--babel-color-success))'
             }
         },
     },

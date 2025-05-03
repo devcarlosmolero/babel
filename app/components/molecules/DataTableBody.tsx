@@ -5,19 +5,19 @@ import {
 } from '~/components/atoms/shacdn/ui/table'
 import { ReactNode } from 'react'
 
-interface DataTableBodyProps {
+interface IDataTableBodyProps {
     items: any[]
-    renderers: DataTableBodyRenderer[]
+    renderers: IDataTableBodyRenderer[]
 }
 
-export interface DataTableBodyRenderer {
+export interface IDataTableBodyRenderer {
     key?: string
     cellClassName?: string
     component?: (item: any) => ReactNode
     formatFunction?: (value: any) => void
 }
 
-export const DataTableBody = ({ items, renderers }: DataTableBodyProps) => {
+export const DataTableBody = ({ items, renderers }: IDataTableBodyProps) => {
     return (
         <TableBody>
             <Cells items={items} renderers={renderers} />
@@ -30,9 +30,9 @@ const Cells = ({
     renderers,
 }: {
     items: any[]
-    renderers: DataTableBodyRenderer[]
+    renderers: IDataTableBodyRenderer[]
 }) => {
-    const getKeyValue = (item: any, renderer: DataTableBodyRenderer) => {
+    const getKeyValue = (item: any, renderer: IDataTableBodyRenderer) => {
         return renderer.formatFunction
             ? renderer.formatFunction!(item[renderer.key!])
             : item[renderer.key!]
