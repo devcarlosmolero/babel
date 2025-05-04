@@ -52,7 +52,7 @@ export default function App() {
                 <Meta />
                 <Links />
             </head>
-            <body className="bg-gradient-to-b from-[#F9F9F9] to-[#FDECEA]">
+            <body className="bg-gradient-to-b from-[#F9F9F9] via-[#F9F9F9] to-[#FDECEA] font-secondary">
                 <main>
                     <Outlet />
                     <ScrollRestoration />

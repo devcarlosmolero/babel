@@ -12,7 +12,7 @@ export default function PageInner({
         <div
             className={cn(
                 className ?? 'grid grid-cols-1',
-                'gap-y-12 py-3 md:py-10'
+                'gap-y-12 py-6 md:py-10'
             )}
         >
             {children}

@@ -7,7 +7,7 @@ function Text({ block }: { block: IEditorBlockItem }) {
             dangerouslySetInnerHTML={{
                 __html: block.content?.replaceAll(' ', '&nbsp;') ?? '',
             }}
-            className="text-lg text-tertiary"
+            className="text-tertiary md:text-lg"
         />
     )
 }
@@ -20,7 +20,7 @@ function Fill({ block }: { block: IEditorBlockItem }) {
             <input
                 type="text"
                 style={{ width: width }}
-                className={`h-[20px] border-b border-tertiary bg-transparent text-center text-lg font-bold italic focus:outline-0`}
+                className={`h-[20px] border-b border-tertiary bg-transparent text-center font-bold italic focus:outline-0 md:text-lg`}
             />
             {block?.spaces?.trailing && <>&nbsp;</>}
         </Fragment>

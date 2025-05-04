@@ -55,3 +55,13 @@ html {
     border-color: hsl(359, 100%, 94%) !important;
     color: hsl(360, 100%, 45%) !important;
 }
+
+@keyframes indeterminate-slide {
+    0% { transform: translateX(-150%); }
+    60% { transform: translateX(150%); }
+    100% { transform: translateX(150%); }
+  }
+
+  .animate-indeterminate-slide {
+    animation: indeterminate-slide 1.5s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+  }
