@@ -2,7 +2,7 @@ import { sqliteTable, text, integer, index } from 'drizzle-orm/sqlite-core'
 import { sql, relations } from 'drizzle-orm'
 import { templates } from './template'
 
-export const block = sqliteTable(
+export const blocks = sqliteTable(
     'blocks',
     {
         id: text('id').primaryKey().notNull(),
@@ -32,9 +32,9 @@ export const block = sqliteTable(
     ]
 )
 
-export const blocksRelations = relations(block, ({ one }) => ({
+export const blocksRelations = relations(blocks, ({ one }) => ({
     template: one(templates, {
-        fields: [block.templateId],
+        fields: [blocks.templateId],
         references: [templates.id],
     }),
 }))

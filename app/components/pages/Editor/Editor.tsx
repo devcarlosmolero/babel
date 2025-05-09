@@ -17,7 +17,7 @@ export default function Editor() {
             }}
             placeholder="Write your assignment, if you feel lost press ⌘ + C to display the available commands..."
             className={cn(
-                'h-full w-full overflow-y-auto whitespace-nowrap rounded-t-lg border border-border bg-white/80 p-6 pb-28 font-secondary text-tertiary shadow-sm shadow-border focus:outline-none md:whitespace-normal md:p-10 md:pb-28 md:text-lg',
+                'h-full w-full overflow-y-auto whitespace-nowrap p-6 pb-28 font-secondary text-tertiary focus:outline-none md:whitespace-normal md:rounded-t-lg md:border md:border-border md:bg-white/80 md:p-10 md:pb-28 md:text-lg md:shadow-sm md:shadow-border',
                 isEmpty && 'whitespace-normal'
             )}
         ></textarea>

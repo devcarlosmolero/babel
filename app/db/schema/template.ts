@@ -1,6 +1,6 @@
 import { sqliteTable, text, integer, index } from 'drizzle-orm/sqlite-core'
 import { relations, sql } from 'drizzle-orm'
-import { block } from './block'
+import { blocks } from './block'
 
 export const templates = sqliteTable(
     'templates',
@@ -19,5 +19,5 @@ export const templates = sqliteTable(
 )
 
 export const templatesRelations = relations(templates, ({ many }) => ({
-    blocks: many(block),
+    blocks: many(blocks),
 }))

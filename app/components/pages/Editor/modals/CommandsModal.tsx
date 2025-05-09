@@ -14,11 +14,11 @@ export default function CommandsModal() {
             <DialogTrigger asChild>
                 <Button
                     variant="outline"
-                    className="group flex h-[42px] max-h-[42px] w-[42px] min-w-[42px] max-w-[42px] items-center justify-center !bg-transparent !px-0 !py-0"
+                    className="group flex h-[34px] max-h-[34px] w-[34px] min-w-[34px] max-w-[34px] items-center justify-center !bg-transparent !px-0 !py-0 md:h-[42px] md:max-h-[42px] md:w-[42px] md:min-w-[42px] md:max-w-[42px]"
                 >
                     <Command
                         strokeWidth={'1'}
-                        className="size-5 transition-all duration-500 group-hover:rotate-45"
+                        className="size-4 transition-all duration-500 group-hover:rotate-45 md:size-5"
                     />
                 </Button>
             </DialogTrigger>

@@ -4,14 +4,16 @@ import PageInner from './PageInner'
 
 export default function Page({
     children,
+    containerClassName,
     className,
 }: {
     children: ReactNode | ReactNode[]
+    containerClassName?: string
     className?: string
 }) {
     return (
         <div>
-            <Container>
+            <Container className={containerClassName}>
                 <PageInner className={className}>{children}</PageInner>
             </Container>
         </div>

@@ -23,12 +23,12 @@ function ContentDesktop() {
                     props={{ onClick: () => handlePreview(!isPreview) }}
                     variant={isPreview ? 'primary' : 'outline'}
                     className={cn(
-                        'flex h-[42px] max-h-[42px] w-[42px] min-w-[42px] max-w-[42px] items-center justify-center !px-0 !py-0'
+                        'flex h-[34px] max-h-[34px] w-[34px] min-w-[34px] max-w-[34px] items-center justify-center !px-0 !py-0 md:h-[42px] md:max-h-[42px] md:w-[42px] md:min-w-[42px] md:max-w-[42px]'
                     )}
                 >
                     <Eye
                         strokeWidth={isPreview ? '2' : '1'}
-                        className="size-5"
+                        className="size-4 md:size-5"
                     />
                 </Button>
                 <EditorModals.SettingsModal />
@@ -36,7 +36,10 @@ function ContentDesktop() {
                 <Button
                     props={{ onClick: handlePublish }}
                     variant="primary"
-                    className={cn(isSaving && '!bg-primary/10', 'min-w-[90px]')}
+                    className={cn(
+                        isSaving && '!bg-primary/10',
+                        'flex h-[34px] min-w-[90px] items-center justify-center py-1 md:h-[42px] md:py-2'
+                    )}
                     isDisabled={
                         isSaving ||
                         ((editorRef.current?.value === '' ||
@@ -44,7 +47,11 @@ function ContentDesktop() {
                             blocks.length === 0)
                     }
                 >
-                    {isSaving ? <Spinner /> : 'Publish'}
+                    {isSaving ? (
+                        <Spinner size="w-5 h-5 md:w-6 md:h-6" />
+                    ) : (
+                        'Publish'
+                    )}
                 </Button>
             </div>
         </Fragment>

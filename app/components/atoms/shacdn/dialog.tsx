@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { MoveLeft } from 'lucide-react'
+import { X } from 'lucide-react'
 
 import { cn } from '~/lib/utils'
 import Button from '../Button'
@@ -80,16 +80,7 @@ const DialogTitle = React.forwardRef<
     React.ElementRef<typeof DialogPrimitive.Title>,
     React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
 >(({ className, ...props }, ref) => (
-    <div className="flex items-center gap-2">
-        <DialogPrimitive.Close className="text-tertiary focus:outline-none disabled:pointer-events-none">
-            <Button
-                variant="outline"
-                className="group flex h-[42px] max-h-[42px] w-[42px] min-w-[42px] max-w-[42px] items-center justify-center !bg-transparent !px-0 !py-0"
-            >
-                <MoveLeft strokeWidth={'1'} className="size-6" />
-            </Button>
-            <span className="sr-only">Close</span>
-        </DialogPrimitive.Close>
+    <div className="flex w-full items-center justify-between">
         <DialogPrimitive.Title
             ref={ref}
             className={cn(
@@ -98,6 +89,20 @@ const DialogTitle = React.forwardRef<
             )}
             {...props}
         />
+        <DialogPrimitive.Close className="group text-tertiary focus:outline-none disabled:pointer-events-none">
+            <Button
+                variant="outline"
+                className={cn(
+                    'flex h-[34px] max-h-[34px] w-[34px] min-w-[34px] max-w-[34px] items-center justify-center !px-0 !py-0 md:h-[42px] md:max-h-[42px] md:w-[42px] md:min-w-[42px] md:max-w-[42px]'
+                )}
+            >
+                <X
+                    strokeWidth={'1'}
+                    className="size-4 text-tertiary/40 transition-all duration-500 group-hover:rotate-90 group-hover:text-tertiary/60 md:size-5"
+                />
+            </Button>
+            <span className="sr-only">Close</span>
+        </DialogPrimitive.Close>
     </div>
 ))
 DialogTitle.displayName = DialogPrimitive.Title.displayName

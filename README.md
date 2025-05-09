@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./public/logo.png" width="75px" height="80px"/>
+<img src="./public/logo.png" width="70px" height="75px"/>
 </p>
 <h1 align="center">Babel</h1>
 <p align="center">

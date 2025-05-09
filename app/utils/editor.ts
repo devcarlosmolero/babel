@@ -10,14 +10,17 @@ function getLines(editorRef: RefObject<HTMLTextAreaElement>) {
     return []
 }
 
-function getBlocks(editorRef: RefObject<HTMLTextAreaElement>) {
+function getBlocks(
+    editorRef: RefObject<HTMLTextAreaElement>
+): IEditorBlockItem[] {
     const lines = getLines(editorRef)
 
     const blocks = lines
-        .map((line) => {
+        .map((line, row) => {
             const blocks: IEditorBlockItem[] = []
 
             let currentIndex = 0
+            let blockPosition = 0
 
             while (currentIndex < line.length) {
                 EDITOR.FILL_COMMAND_REGEX.lastIndex = currentIndex
@@ -44,6 +47,8 @@ function getBlocks(editorRef: RefObject<HTMLTextAreaElement>) {
                             blocks.push({
                                 type: 'TEXT',
                                 content: remainingText,
+                                row,
+                                position: blockPosition++,
                             })
                         }
                     }
@@ -56,6 +61,8 @@ function getBlocks(editorRef: RefObject<HTMLTextAreaElement>) {
                         blocks.push({
                             type: 'TEXT',
                             content: textBefore,
+                            row,
+                            position: blockPosition++,
                         })
                     }
                 }
@@ -68,6 +75,8 @@ function getBlocks(editorRef: RefObject<HTMLTextAreaElement>) {
                             trailing: fillMatch[3] === ' ',
                         },
                         answer: fillMatch[2],
+                        row,
+                        position: blockPosition++,
                     })
                     currentIndex = fillMatch.index + fillMatch[0].length
                 } else {
@@ -80,7 +89,9 @@ function getBlocks(editorRef: RefObject<HTMLTextAreaElement>) {
                                 leading: choiceMatch[1] === ' ',
                                 trailing: choiceMatch[3] === ' ',
                             },
-                            answer: options[1],
+                            answer: options[0],
+                            row,
+                            position: blockPosition++,
                         })
                         currentIndex = choiceMatch.index + choiceMatch[0].length
                     }
@@ -90,6 +101,7 @@ function getBlocks(editorRef: RefObject<HTMLTextAreaElement>) {
             return blocks
         })
         .filter((blocks) => blocks.length > 0)
+        .flat() // Flatten the nested arrays into a single array of blocks
     return blocks
 }
 
